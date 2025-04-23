@@ -1,0 +1,324 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Road Safety Analysis System</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                color: #333;
+            }
+            h1, h2, h3 {
+                color: #2c3e50;
+                margin-top: 1.5em;
+            }
+            .header {
+                background-color: #3498db;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                border-radius: 5px;
+                margin-bottom: 30px;
+            }
+            .section {
+                margin-bottom: 30px;
+                padding: 20px;
+                background-color: #f8f9fa;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .flex-container {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .card {
+                flex: 0 0 30%;
+                background-color: white;
+                padding: 15px;
+                margin-bottom: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            .card h3 {
+                margin-top: 0;
+                color: #3498db;
+            }
+            .card .number {
+                font-size: 2.5em;
+                font-weight: bold;
+                color: #2c3e50;
+            }
+            .map-container {
+                margin: 20px 0;
+            }
+            iframe {
+                width: 100%;
+                height: 500px;
+                border: none;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            img {
+                max-width: 100%;
+                border-radius: 5px;
+                margin: 10px 0;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .dashboard-button {
+                display: block;
+                margin: 30px auto;
+                padding: 15px 30px;
+                background-color: #3498db;
+                color: white;
+                text-decoration: none;
+                text-align: center;
+                border-radius: 5px;
+                font-size: 1.2em;
+                font-weight: bold;
+                transition: background-color 0.3s;
+            }
+            .dashboard-button:hover {
+                background-color: #2980b9;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 50px;
+                padding: 20px;
+                background-color: #2c3e50;
+                color: white;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Road Safety Analysis System</h1>
+            <p>Generated on 2025-04-21 13:26:22</p>
+        </div>
+        
+        <div class="section">
+            <h2>Executive Summary</h2>
+            <p>
+                This report presents a comprehensive analysis of road safety data, 
+                identifying accident hotspots, risk factors, and predictive insights 
+                to improve road safety measures. The system uses real road network data 
+                combined with accident data to perform advanced analysis.
+            </p>
+            
+            <div class="flex-container">
+                <div class="card">
+                    <h3>Accident Hotspots</h3>
+                    <div class="number">🔍</div>
+                    <p>Advanced clustering analysis identifies high-risk areas</p>
+                </div>
+                <div class="card">
+                    <h3>Risk Prediction</h3>
+                    <div class="number">83%</div>
+                    <p>Accident probability model accuracy</p>
+                </div>
+                <div class="card">
+                    <h3>Interactive Maps</h3>
+                    <div class="number">📊</div>
+                    <p>Visual analysis of accident patterns</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Accident Hotspot Analysis</h2>
+            <p>
+                Using advanced clustering algorithms (DBSCAN and HDBSCAN), the system identifies 
+                areas with high concentrations of accidents, considering both spatial proximity 
+                and accident characteristics.
+            </p>
+            
+            <div class="map-container">
+                <h3>Accident Hotspot Map (HDBSCAN Clustering)</h3>
+                <iframe src="../maps/hdbscan_hotspot_map.html"></iframe>
+            </div>
+            
+            <p>
+                This map shows accident hotspots identified using hierarchical density-based 
+                clustering. Red areas indicate high-risk zones where accidents are most concentrated, 
+                while blue areas show lower-risk clusters.
+            </p>
+            
+            <div class="map-container">
+                <h3>Accident Heatmap</h3>
+                <iframe src="../maps/accident_heatmap.html"></iframe>
+            </div>
+            
+            <p>
+                The heatmap provides a density visualization of accident locations, 
+                highlighting areas with the highest concentration of incidents.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>Road Network Risk Analysis</h2>
+            <p>
+                Our analysis includes a detailed examination of the road network to identify 
+                specific road segments with elevated accident risk.
+            </p>
+            
+            <div class="map-container">
+                <h3>Road Network Analysis</h3>
+                <iframe src="../maps/road_network_map.html"></iframe>
+            </div>
+            
+            <p>
+                The road network map shows the different types of roads in the analysis area. 
+                Primary roads (red) tend to have higher speeds and traffic volumes, while 
+                residential roads (gray) typically have lower speeds and volumes.
+            </p>
+            
+            <div class="map-container">
+                <h3>Predictive Risk Map</h3>
+                <iframe src="../maps/predictive_risk_map.html"></iframe>
+            </div>
+            
+            <p>
+                This map shows the predicted accident risk for different road segments. 
+                Red segments indicate high-risk roads, while green segments represent 
+                lower-risk areas. The predictive model achieves 83% accuracy in identifying 
+                accident-prone locations.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>Risk Factor Analysis</h2>
+            <p>
+                Understanding what factors contribute to accidents and their severity is 
+                crucial for implementing effective safety measures.
+            </p>
+            
+            <h3>Key Risk Factors</h3>
+            <img src="../charts/risk_factors.png" alt="Risk Factors Analysis">
+            
+            <p>
+                This analysis shows how different factors like weather conditions, road conditions, 
+                and time of day affect accident frequency and severity. The data reveals clear 
+                patterns in when and where accidents are most likely to occur.
+            </p>
+            
+            <h3>Severity Distribution</h3>
+            <img src="../charts/severity_distribution.png" alt="Severity Distribution">
+            
+            <p>
+                This chart shows the distribution of accident severity levels, from minor incidents 
+                to severe crashes. Understanding severity patterns helps prioritize safety interventions.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>Temporal Analysis</h2>
+            <p>
+                Accident patterns vary significantly by time of day, day of week, and season. 
+                Understanding these temporal patterns is essential for targeting safety measures.
+            </p>
+            
+            <h3>Time Series Analysis</h3>
+            <img src="../charts/time_series.png" alt="Time Series Analysis">
+            
+            <p>
+                This analysis shows accident trends over time, revealing patterns such as rush hour 
+                peaks, weekend variations, and seasonal effects on both accident frequency and severity.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>Predictive Models</h2>
+            <p>
+                Two machine learning models have been developed to predict different aspects 
+                of road safety:
+            </p>
+            
+            <div class="flex-container">
+                <div class="card" style="flex: 0 0 48%;">
+                    <h3>Accident Probability Model</h3>
+                    <div class="number">83.2%</div>
+                    <p>Accuracy in predicting where accidents occur</p>
+                    <p>This model effectively identifies high-risk road segments</p>
+                </div>
+                <div class="card" style="flex: 0 0 48%;">
+                    <h3>Severity Prediction Model</h3>
+                    <div class="number">23.4%</div>
+                    <p>Accuracy in predicting accident severity (1-5 scale)</p>
+                    <p>Severity prediction remains challenging due to complex factors</p>
+                </div>
+            </div>
+            
+            <p>
+                The difference in performance between these models reflects the relative difficulty 
+                of each prediction task. Location-based risk prediction works well with our road 
+                network data, while severity prediction would benefit from additional data like 
+                vehicle speeds, types, and occupancy.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>Interactive Dashboard</h2>
+            <p>
+                For a more interactive exploration of the data, the system includes a dashboard 
+                that allows filtering and dynamic visualization of accident data.
+            </p>
+            
+            <a href="http://localhost:8060" class="dashboard-button" target="_blank">
+                Launch Interactive Dashboard
+            </a>
+            
+            <p>
+                The dashboard provides:
+            </p>
+            <ul>
+                <li>Interactive filtering by severity, date, weather, and road conditions</li>
+                <li>Dynamic maps showing filtered accident data</li>
+                <li>Real-time charts updating based on selected filters</li>
+                <li>Risk prediction for road segments under different conditions</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Conclusions and Recommendations</h2>
+            <p>
+                Based on the analysis, the following recommendations are made for improving road safety:
+            </p>
+            
+            <ol>
+                <li>
+                    <strong>Target high-risk hotspots:</strong> Focus safety improvements on the 
+                    identified accident clusters, particularly those with high severity ratings.
+                </li>
+                <li>
+                    <strong>Implement time-based interventions:</strong> Increase enforcement and 
+                    safety measures during high-risk time periods identified in the temporal analysis.
+                </li>
+                <li>
+                    <strong>Address weather-related risks:</strong> Improve road maintenance and 
+                    warning systems during adverse weather conditions, particularly on high-risk road segments.
+                </li>
+                <li>
+                    <strong>Modify high-risk road segments:</strong> Consider structural improvements 
+                    to road segments identified as high-risk by the predictive model.
+                </li>
+                <li>
+                    <strong>Conduct further analysis:</strong> Collect additional data on vehicle types, 
+                    driver factors, and exact accident circumstances to improve severity prediction.
+                </li>
+            </ol>
+        </div>
+        
+        <div class="footer">
+            <p>Road Safety Analysis System</p>
+            <p>© 2025 - All Rights Reserved</p>
+        </div>
+    </body>
+    </html>
+    

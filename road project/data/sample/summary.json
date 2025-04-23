@@ -1,0 +1,18 @@
+{
+  "generated_at": "2025-04-13T19:19:40.865224",
+  "data_sources": {
+    "accidents": {
+      "count": 2000,
+      "file": "data/sample/accidents.json"
+    },
+    "road_network": {
+      "segments": 81,
+      "file": "data/sample/road_network.geojson"
+    },
+    "weather": {
+      "data_points": 2160,
+      "days": 90,
+      "file": "data/sample/weather.json"
+    }
+  }
+}

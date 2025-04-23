@@ -1,0 +1,2030 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-1",
+        "highway": "primary",
+        "name": "EW Road 0",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.7781
+          ],
+          [
+            -87.52980000000001,
+            41.7781
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-2",
+        "highway": "primary",
+        "name": "EW Road 1",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.783100000000005
+          ],
+          [
+            -87.52980000000001,
+            41.783100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-3",
+        "highway": "secondary",
+        "name": "EW Road 1",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.78810000000001
+          ],
+          [
+            -87.52980000000001,
+            41.78810000000001
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-4",
+        "highway": "primary",
+        "name": "EW Road 2",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.79310000000001
+          ],
+          [
+            -87.52980000000001,
+            41.79310000000001
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-5",
+        "highway": "secondary",
+        "name": "EW Road 2",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.79810000000001
+          ],
+          [
+            -87.52980000000001,
+            41.79810000000001
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-6",
+        "highway": "secondary",
+        "name": "EW Road 3",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.803100000000015
+          ],
+          [
+            -87.52980000000001,
+            41.803100000000015
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-7",
+        "highway": "tertiary",
+        "name": "EW Road 3",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.80810000000002
+          ],
+          [
+            -87.52980000000001,
+            41.80810000000002
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-8",
+        "highway": "secondary",
+        "name": "EW Road 4",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.81310000000002
+          ],
+          [
+            -87.52980000000001,
+            41.81310000000002
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-9",
+        "highway": "tertiary",
+        "name": "EW Road 4",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.81810000000002
+          ],
+          [
+            -87.52980000000001,
+            41.81810000000002
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-10",
+        "highway": "primary",
+        "name": "EW Road 5",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.823100000000025
+          ],
+          [
+            -87.52980000000001,
+            41.823100000000025
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-11",
+        "highway": "primary",
+        "name": "EW Road 5",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.82810000000003
+          ],
+          [
+            -87.52980000000001,
+            41.82810000000003
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-12",
+        "highway": "secondary",
+        "name": "EW Road 6",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.83310000000003
+          ],
+          [
+            -87.52980000000001,
+            41.83310000000003
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-13",
+        "highway": "secondary",
+        "name": "EW Road 6",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.83810000000003
+          ],
+          [
+            -87.52980000000001,
+            41.83810000000003
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-14",
+        "highway": "primary",
+        "name": "EW Road 7",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.843100000000035
+          ],
+          [
+            -87.52980000000001,
+            41.843100000000035
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-15",
+        "highway": "primary",
+        "name": "EW Road 7",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.84810000000004
+          ],
+          [
+            -87.52980000000001,
+            41.84810000000004
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-16",
+        "highway": "primary",
+        "name": "EW Road 8",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.85310000000004
+          ],
+          [
+            -87.52980000000001,
+            41.85310000000004
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-17",
+        "highway": "tertiary",
+        "name": "EW Road 8",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": true,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.85810000000004
+          ],
+          [
+            -87.52980000000001,
+            41.85810000000004
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-18",
+        "highway": "residential",
+        "name": "EW Road 9",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.863100000000045
+          ],
+          [
+            -87.52980000000001,
+            41.863100000000045
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-19",
+        "highway": "residential",
+        "name": "EW Road 9",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.86810000000005
+          ],
+          [
+            -87.52980000000001,
+            41.86810000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-20",
+        "highway": "residential",
+        "name": "EW Road 10",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.87310000000005
+          ],
+          [
+            -87.52980000000001,
+            41.87310000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-21",
+        "highway": "primary",
+        "name": "EW Road 10",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.87810000000005
+          ],
+          [
+            -87.52980000000001,
+            41.87810000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-22",
+        "highway": "tertiary",
+        "name": "EW Road 11",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.883100000000056
+          ],
+          [
+            -87.52980000000001,
+            41.883100000000056
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-23",
+        "highway": "tertiary",
+        "name": "EW Road 11",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.88810000000006
+          ],
+          [
+            -87.52980000000001,
+            41.88810000000006
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-24",
+        "highway": "tertiary",
+        "name": "EW Road 12",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.89310000000006
+          ],
+          [
+            -87.52980000000001,
+            41.89310000000006
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-25",
+        "highway": "primary",
+        "name": "EW Road 12",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.89810000000006
+          ],
+          [
+            -87.52980000000001,
+            41.89810000000006
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-26",
+        "highway": "secondary",
+        "name": "EW Road 13",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.903100000000066
+          ],
+          [
+            -87.52980000000001,
+            41.903100000000066
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-27",
+        "highway": "secondary",
+        "name": "EW Road 13",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.90810000000007
+          ],
+          [
+            -87.52980000000001,
+            41.90810000000007
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-28",
+        "highway": "residential",
+        "name": "EW Road 14",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.91310000000007
+          ],
+          [
+            -87.52980000000001,
+            41.91310000000007
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-29",
+        "highway": "secondary",
+        "name": "EW Road 14",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.918100000000074
+          ],
+          [
+            -87.52980000000001,
+            41.918100000000074
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-30",
+        "highway": "secondary",
+        "name": "EW Road 15",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.923100000000076
+          ],
+          [
+            -87.52980000000001,
+            41.923100000000076
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-31",
+        "highway": "residential",
+        "name": "EW Road 15",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.92810000000008
+          ],
+          [
+            -87.52980000000001,
+            41.92810000000008
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-32",
+        "highway": "secondary",
+        "name": "EW Road 16",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.93310000000008
+          ],
+          [
+            -87.52980000000001,
+            41.93310000000008
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-33",
+        "highway": "secondary",
+        "name": "EW Road 16",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.938100000000084
+          ],
+          [
+            -87.52980000000001,
+            41.938100000000084
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-34",
+        "highway": "secondary",
+        "name": "EW Road 17",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.943100000000086
+          ],
+          [
+            -87.52980000000001,
+            41.943100000000086
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-35",
+        "highway": "primary",
+        "name": "EW Road 17",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.94810000000009
+          ],
+          [
+            -87.52980000000001,
+            41.94810000000009
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-36",
+        "highway": "tertiary",
+        "name": "EW Road 18",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.95310000000009
+          ],
+          [
+            -87.52980000000001,
+            41.95310000000009
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-37",
+        "highway": "tertiary",
+        "name": "EW Road 18",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.958100000000094
+          ],
+          [
+            -87.52980000000001,
+            41.958100000000094
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-38",
+        "highway": "secondary",
+        "name": "EW Road 19",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.9631000000001
+          ],
+          [
+            -87.52980000000001,
+            41.9631000000001
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-39",
+        "highway": "secondary",
+        "name": "EW Road 19",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.9681000000001
+          ],
+          [
+            -87.52980000000001,
+            41.9681000000001
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-40",
+        "highway": "secondary",
+        "name": "EW Road 20",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.9731000000001
+          ],
+          [
+            -87.52980000000001,
+            41.9731000000001
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-EW-41",
+        "highway": "secondary",
+        "name": "EW Road 20",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.978100000000104
+          ],
+          [
+            -87.52980000000001,
+            41.978100000000104
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-42",
+        "highway": "residential",
+        "name": "NS Road 20",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7298,
+            41.7781
+          ],
+          [
+            -87.7298,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-43",
+        "highway": "secondary",
+        "name": "NS Road 21",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7248,
+            41.7781
+          ],
+          [
+            -87.7248,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-44",
+        "highway": "secondary",
+        "name": "NS Road 21",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.7198,
+            41.7781
+          ],
+          [
+            -87.7198,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-45",
+        "highway": "residential",
+        "name": "NS Road 22",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.71480000000001,
+            41.7781
+          ],
+          [
+            -87.71480000000001,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-46",
+        "highway": "tertiary",
+        "name": "NS Road 22",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.70980000000002,
+            41.7781
+          ],
+          [
+            -87.70980000000002,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-47",
+        "highway": "tertiary",
+        "name": "NS Road 23",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.70480000000002,
+            41.7781
+          ],
+          [
+            -87.70480000000002,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-48",
+        "highway": "primary",
+        "name": "NS Road 23",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.69980000000002,
+            41.7781
+          ],
+          [
+            -87.69980000000002,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-49",
+        "highway": "residential",
+        "name": "NS Road 24",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.69480000000003,
+            41.7781
+          ],
+          [
+            -87.69480000000003,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-50",
+        "highway": "residential",
+        "name": "NS Road 24",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.68980000000003,
+            41.7781
+          ],
+          [
+            -87.68980000000003,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-51",
+        "highway": "residential",
+        "name": "NS Road 25",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.68480000000004,
+            41.7781
+          ],
+          [
+            -87.68480000000004,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-52",
+        "highway": "residential",
+        "name": "NS Road 25",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.67980000000004,
+            41.7781
+          ],
+          [
+            -87.67980000000004,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-53",
+        "highway": "tertiary",
+        "name": "NS Road 26",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.67480000000005,
+            41.7781
+          ],
+          [
+            -87.67480000000005,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-54",
+        "highway": "residential",
+        "name": "NS Road 26",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.66980000000005,
+            41.7781
+          ],
+          [
+            -87.66980000000005,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-55",
+        "highway": "tertiary",
+        "name": "NS Road 27",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.66480000000006,
+            41.7781
+          ],
+          [
+            -87.66480000000006,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-56",
+        "highway": "residential",
+        "name": "NS Road 27",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.65980000000006,
+            41.7781
+          ],
+          [
+            -87.65980000000006,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-57",
+        "highway": "residential",
+        "name": "NS Road 28",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.65480000000007,
+            41.7781
+          ],
+          [
+            -87.65480000000007,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-58",
+        "highway": "secondary",
+        "name": "NS Road 28",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.64980000000007,
+            41.7781
+          ],
+          [
+            -87.64980000000007,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-59",
+        "highway": "secondary",
+        "name": "NS Road 29",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.64480000000007,
+            41.7781
+          ],
+          [
+            -87.64480000000007,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-60",
+        "highway": "secondary",
+        "name": "NS Road 29",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63980000000008,
+            41.7781
+          ],
+          [
+            -87.63980000000008,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-61",
+        "highway": "primary",
+        "name": "NS Road 30",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.63480000000008,
+            41.7781
+          ],
+          [
+            -87.63480000000008,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-62",
+        "highway": "tertiary",
+        "name": "NS Road 30",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.62980000000009,
+            41.7781
+          ],
+          [
+            -87.62980000000009,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-63",
+        "highway": "primary",
+        "name": "NS Road 31",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.62480000000009,
+            41.7781
+          ],
+          [
+            -87.62480000000009,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-64",
+        "highway": "tertiary",
+        "name": "NS Road 31",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": true,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6198000000001,
+            41.7781
+          ],
+          [
+            -87.6198000000001,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-65",
+        "highway": "primary",
+        "name": "NS Road 32",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6148000000001,
+            41.7781
+          ],
+          [
+            -87.6148000000001,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-66",
+        "highway": "tertiary",
+        "name": "NS Road 32",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.6098000000001,
+            41.7781
+          ],
+          [
+            -87.6098000000001,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-67",
+        "highway": "residential",
+        "name": "NS Road 33",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.60480000000011,
+            41.7781
+          ],
+          [
+            -87.60480000000011,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-68",
+        "highway": "residential",
+        "name": "NS Road 33",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.59980000000012,
+            41.7781
+          ],
+          [
+            -87.59980000000012,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-69",
+        "highway": "secondary",
+        "name": "NS Road 34",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.59480000000012,
+            41.7781
+          ],
+          [
+            -87.59480000000012,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-70",
+        "highway": "residential",
+        "name": "NS Road 34",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.58980000000012,
+            41.7781
+          ],
+          [
+            -87.58980000000012,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-71",
+        "highway": "secondary",
+        "name": "NS Road 35",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.58480000000013,
+            41.7781
+          ],
+          [
+            -87.58480000000013,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-72",
+        "highway": "tertiary",
+        "name": "NS Road 35",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.57980000000013,
+            41.7781
+          ],
+          [
+            -87.57980000000013,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-73",
+        "highway": "primary",
+        "name": "NS Road 36",
+        "lanes": 3,
+        "maxspeed": 50,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.57480000000014,
+            41.7781
+          ],
+          [
+            -87.57480000000014,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-74",
+        "highway": "secondary",
+        "name": "NS Road 36",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.56980000000014,
+            41.7781
+          ],
+          [
+            -87.56980000000014,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-75",
+        "highway": "residential",
+        "name": "NS Road 37",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.56480000000015,
+            41.7781
+          ],
+          [
+            -87.56480000000015,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-76",
+        "highway": "residential",
+        "name": "NS Road 37",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": true,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.55980000000015,
+            41.7781
+          ],
+          [
+            -87.55980000000015,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-77",
+        "highway": "residential",
+        "name": "NS Road 38",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.55480000000016,
+            41.7781
+          ],
+          [
+            -87.55480000000016,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-78",
+        "highway": "residential",
+        "name": "NS Road 38",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.54980000000016,
+            41.7781
+          ],
+          [
+            -87.54980000000016,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-79",
+        "highway": "residential",
+        "name": "NS Road 39",
+        "lanes": 1,
+        "maxspeed": 25,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.54480000000017,
+            41.7781
+          ],
+          [
+            -87.54480000000017,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-80",
+        "highway": "tertiary",
+        "name": "NS Road 39",
+        "lanes": 1,
+        "maxspeed": 30,
+        "oneway": false,
+        "surface": "asphalt"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.53980000000017,
+            41.7781
+          ],
+          [
+            -87.53980000000017,
+            41.978100000000005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RD-NS-81",
+        "highway": "secondary",
+        "name": "NS Road 40",
+        "lanes": 2,
+        "maxspeed": 40,
+        "oneway": false,
+        "surface": "concrete"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -87.53480000000017,
+            41.7781
+          ],
+          [
+            -87.53480000000017,
+            41.978100000000005
+          ]
+        ]
+      }
+    }
+  ]
+}

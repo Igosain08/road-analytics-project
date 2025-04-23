@@ -1,0 +1,2446 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_93104e15c014db9744e07c74e7cf8d82 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+        <h3 align="center" style="font-size:16px"><b>Predictive Road Risk Map</b></h3>
+    
+    
+    <div style="position: fixed; bottom: 50px; right: 50px; z-index: 1000; background-color: white; padding: 10px; border: 2px solid grey; border-radius: 5px;">
+        <p><b>Predicted Risk</b></p>
+        <p><i class="fa fa-minus" style="color:red"></i> High/Severe Risk</p>
+        <p><i class="fa fa-minus" style="color:orange"></i> Moderate/Elevated Risk</p>
+        <p><i class="fa fa-minus" style="color:green"></i> Low Risk</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_93104e15c014db9744e07c74e7cf8d82" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_93104e15c014db9744e07c74e7cf8d82 = L.map(
+                "map_93104e15c014db9744e07c74e7cf8d82",
+                {
+                    center: [41.919316664, -87.65535569190001],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fc2b89e65cb710742b0eed2fae8c8f17 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_fc2b89e65cb710742b0eed2fae8c8f17.addTo(map_93104e15c014db9744e07c74e7cf8d82);
+        
+    
+            var feature_group_edac97692c35fd83e5e2e328c72c92b3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_edac97692c35fd83e5e2e328c72c92b3.addTo(map_93104e15c014db9744e07c74e7cf8d82);
+        
+    
+            var feature_group_1b469416b38376b395b23869e2b7aab5 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_e4c725f6381d8d20f7ac5bfc955d7165 = L.polyline(
+                [[41.928689, -87.6423145], [41.9296938, -87.6429428]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_8df4998adb1375b61caa3d7aa3c14271 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b14c7a855cd9f4808c9b3a637524f7c3 = $(`<div id="html_b14c7a855cd9f4808c9b3a637524f7c3" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Clark Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5259<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_8df4998adb1375b61caa3d7aa3c14271.setContent(html_b14c7a855cd9f4808c9b3a637524f7c3);
+            
+        
+
+        poly_line_e4c725f6381d8d20f7ac5bfc955d7165.bindPopup(popup_8df4998adb1375b61caa3d7aa3c14271)
+        ;
+
+        
+    
+    
+            var poly_line_41b20fa280b0aeafd6601e194eb72f70 = L.polyline(
+                [[41.9365526, -87.7037136], [41.9343596, -87.6999584]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_ae62fb59aede6aebc350bef5452f234a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9c456a8d6088b2fed6e82cc3e728d64c = $(`<div id="html_9c456a8d6088b2fed6e82cc3e728d64c" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>Kennedy Expressway</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5325<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_ae62fb59aede6aebc350bef5452f234a.setContent(html_9c456a8d6088b2fed6e82cc3e728d64c);
+            
+        
+
+        poly_line_41b20fa280b0aeafd6601e194eb72f70.bindPopup(popup_ae62fb59aede6aebc350bef5452f234a)
+        ;
+
+        
+    
+    
+            var poly_line_499ccaa1eda7c40a6d4f19ae77142abc = L.polyline(
+                [[41.9560616, -87.6738368], [41.9560866, -87.6722502]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_c06d671cf5426cab79bb622c06046a14 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_99d17a0591ef5ed7dcc31ee3f85e3205 = $(`<div id="html_99d17a0591ef5ed7dcc31ee3f85e3205" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Belle Plaine Avenue</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5025<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_c06d671cf5426cab79bb622c06046a14.setContent(html_99d17a0591ef5ed7dcc31ee3f85e3205);
+            
+        
+
+        poly_line_499ccaa1eda7c40a6d4f19ae77142abc.bindPopup(popup_c06d671cf5426cab79bb622c06046a14)
+        ;
+
+        
+    
+    
+            var poly_line_931e11b4c6032910a8db61a8c812998e = L.polyline(
+                [[41.8966918, -87.6268474], [41.8967145, -87.6255925]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_abeafe0d3aa3c9aa600a337ae54f1156 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a22cdeb0885976bfb5f4ed6d9ac252a6 = $(`<div id="html_a22cdeb0885976bfb5f4ed6d9ac252a6" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Chicago Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5188<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_abeafe0d3aa3c9aa600a337ae54f1156.setContent(html_a22cdeb0885976bfb5f4ed6d9ac252a6);
+            
+        
+
+        poly_line_931e11b4c6032910a8db61a8c812998e.bindPopup(popup_abeafe0d3aa3c9aa600a337ae54f1156)
+        ;
+
+        
+    
+    
+            var poly_line_c6de7434f058d564c58a2c8cac98a242 = L.polyline(
+                [[41.9546336, -87.6452346], [41.9546674, -87.6441624]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_8a5df8286c071b95ee83ac7a0f275267 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_53b17b0cea4ff652cd44b9ab9fff8cad = $(`<div id="html_53b17b0cea4ff652cd44b9ab9fff8cad" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Irving Park Road</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5126<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_8a5df8286c071b95ee83ac7a0f275267.setContent(html_53b17b0cea4ff652cd44b9ab9fff8cad);
+            
+        
+
+        poly_line_c6de7434f058d564c58a2c8cac98a242.bindPopup(popup_8a5df8286c071b95ee83ac7a0f275267)
+        ;
+
+        
+    
+    
+            var poly_line_15c453128835c7138c83c91b10516968 = L.polyline(
+                [[41.8868112, -87.62446], [41.886817, -87.6238185]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_f6d143aa32ef40b501434fbbf605fedb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_61d207258c9dd5c1a1625dd77985ee3f = $(`<div id="html_61d207258c9dd5c1a1625dd77985ee3f" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East South Water Street</h4>                 <b>Road Type:</b> tertiary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5130<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_f6d143aa32ef40b501434fbbf605fedb.setContent(html_61d207258c9dd5c1a1625dd77985ee3f);
+            
+        
+
+        poly_line_15c453128835c7138c83c91b10516968.bindPopup(popup_f6d143aa32ef40b501434fbbf605fedb)
+        ;
+
+        
+    
+    
+            var poly_line_a6d0e5f96051499ca252faf064b9cc6e = L.polyline(
+                [[41.8603344, -87.6176192], [41.8603784, -87.6139751]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_131380735cdfc8f3eaca058bb6324bf7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_43933ed9a69b57d53154a3113cbf8c1f = $(`<div id="html_43933ed9a69b57d53154a3113cbf8c1f" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Waldron Drive</h4>                 <b>Road Type:</b> tertiary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5100<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_131380735cdfc8f3eaca058bb6324bf7.setContent(html_43933ed9a69b57d53154a3113cbf8c1f);
+            
+        
+
+        poly_line_a6d0e5f96051499ca252faf064b9cc6e.bindPopup(popup_131380735cdfc8f3eaca058bb6324bf7)
+        ;
+
+        
+    
+    
+            var poly_line_25ef03e122b9cf901cf1640b700b90c0 = L.polyline(
+                [[41.9597107, -87.6739308], [41.9615255, -87.6739644]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_fa5c8af901c19074fbc49d64ac15677e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f9946fcfbdbe38c4171049c9549e30dc = $(`<div id="html_f9946fcfbdbe38c4171049c9549e30dc" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Ravenswood Avenue</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5062<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_fa5c8af901c19074fbc49d64ac15677e.setContent(html_f9946fcfbdbe38c4171049c9549e30dc);
+            
+        
+
+        poly_line_25ef03e122b9cf901cf1640b700b90c0.bindPopup(popup_fa5c8af901c19074fbc49d64ac15677e)
+        ;
+
+        
+    
+    
+            var poly_line_d0ad3db2e94a1db3f0e76d1c22029650 = L.polyline(
+                [[41.9615255, -87.6739644], [41.9615474, -87.6724109]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_492179524c6770b31d38f0f125a076c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b88b1196fe354dc9e473ee0761c9572a = $(`<div id="html_b88b1196fe354dc9e473ee0761c9572a" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Montrose Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5203<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_492179524c6770b31d38f0f125a076c9.setContent(html_b88b1196fe354dc9e473ee0761c9572a);
+            
+        
+
+        poly_line_d0ad3db2e94a1db3f0e76d1c22029650.bindPopup(popup_492179524c6770b31d38f0f125a076c9)
+        ;
+
+        
+    
+    
+            var poly_line_11e0a1dd691ae7611ddac33bf0be235f = L.polyline(
+                [[41.9273577, -87.6872907], [41.9231763, -87.6799299]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_a76f095fedc39bbce654920cf6e1b190 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_27619786135ddc44e6b2fe183031a610 = $(`<div id="html_27619786135ddc44e6b2fe183031a610" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>Kennedy Expressway</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5352<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_a76f095fedc39bbce654920cf6e1b190.setContent(html_27619786135ddc44e6b2fe183031a610);
+            
+        
+
+        poly_line_11e0a1dd691ae7611ddac33bf0be235f.bindPopup(popup_a76f095fedc39bbce654920cf6e1b190)
+        ;
+
+        
+    
+    
+            var poly_line_2228e47a79963cd8d54898d045593c58 = L.polyline(
+                [[41.9296848, -87.6392722], [41.9313695, -87.6393188]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_36fdbd5060b426da8970f47077effe68 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ffd8f30a5b5b3345034ae1b686a55c1b = $(`<div id="html_ffd8f30a5b5b3345034ae1b686a55c1b" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Lakeview Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5259<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_36fdbd5060b426da8970f47077effe68.setContent(html_ffd8f30a5b5b3345034ae1b686a55c1b);
+            
+        
+
+        poly_line_2228e47a79963cd8d54898d045593c58.bindPopup(popup_36fdbd5060b426da8970f47077effe68)
+        ;
+
+        
+    
+    
+            var poly_line_66ca73c01afc9ba1193daacb13727466 = L.polyline(
+                [[41.929581, -87.6905954], [41.935999, -87.7015987]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_f6dc9d0012b5a897657f3d1d1181b676 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bc2ca03ed65d38cef9c0bd7b5b53276f = $(`<div id="html_bc2ca03ed65d38cef9c0bd7b5b53276f" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>Kennedy Expressway</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5352<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_f6dc9d0012b5a897657f3d1d1181b676.setContent(html_bc2ca03ed65d38cef9c0bd7b5b53276f);
+            
+        
+
+        poly_line_66ca73c01afc9ba1193daacb13727466.bindPopup(popup_f6dc9d0012b5a897657f3d1d1181b676)
+        ;
+
+        
+    
+    
+            var poly_line_f38f816dc3cd7f0194880c81cdf61179 = L.polyline(
+                [[41.9399654, -87.6506795], [41.9399355, -87.6528801]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_af72ca50cd0c1a73a0a4e724af26d83b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2d3e1c14aafa8ba4acd41cf0b545b49a = $(`<div id="html_2d3e1c14aafa8ba4acd41cf0b545b49a" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Belmont Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5259<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_af72ca50cd0c1a73a0a4e724af26d83b.setContent(html_2d3e1c14aafa8ba4acd41cf0b545b49a);
+            
+        
+
+        poly_line_f38f816dc3cd7f0194880c81cdf61179.bindPopup(popup_af72ca50cd0c1a73a0a4e724af26d83b)
+        ;
+
+        
+    
+    
+            var poly_line_873118a8be6200b781329e9d8450ac55 = L.polyline(
+                [[41.8957483, -87.6241966], [41.8967414, -87.6241758]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_ccbe47bef94addd90f060b82e098e163 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7fd03bd1772dc942e1ca0aa5c925e252 = $(`<div id="html_7fd03bd1772dc942e1ca0aa5c925e252" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Michigan Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5349<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_ccbe47bef94addd90f060b82e098e163.setContent(html_7fd03bd1772dc942e1ca0aa5c925e252);
+            
+        
+
+        poly_line_873118a8be6200b781329e9d8450ac55.bindPopup(popup_ccbe47bef94addd90f060b82e098e163)
+        ;
+
+        
+    
+    
+            var poly_line_050a05a0f5baed21850b72292a6f626e = L.polyline(
+                [[41.9381928, -87.6492281], [41.9390793, -87.6492475]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_598727a51a688cb7a276ec771ee96712 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_24294b7db142c6dd8b79d8510be0ea94 = $(`<div id="html_24294b7db142c6dd8b79d8510be0ea94" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Halsted Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5259<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_598727a51a688cb7a276ec771ee96712.setContent(html_24294b7db142c6dd8b79d8510be0ea94);
+            
+        
+
+        poly_line_050a05a0f5baed21850b72292a6f626e.bindPopup(popup_598727a51a688cb7a276ec771ee96712)
+        ;
+
+        
+    
+    
+            var poly_line_4e31f3953370ce555cef3d895222d5dc = L.polyline(
+                [[41.9543001, -87.67263], [41.95429, -87.6737939]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_19a402367af314b468caaf6efde4711b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9f790dd940a211a2d1d690cacc6beb48 = $(`<div id="html_9f790dd940a211a2d1d690cacc6beb48" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Irving Park Road</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5207<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_19a402367af314b468caaf6efde4711b.setContent(html_9f790dd940a211a2d1d690cacc6beb48);
+            
+        
+
+        poly_line_4e31f3953370ce555cef3d895222d5dc.bindPopup(popup_19a402367af314b468caaf6efde4711b)
+        ;
+
+        
+    
+    
+            var poly_line_0ecf84662616d050f1fccf988f903402 = L.polyline(
+                [[41.9470831, -87.6639986], [41.9461477, -87.6639752]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_0ccc128a29738be76dc3f3e46f494c66 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3f03454a16741451b9ff51130e543ed8 = $(`<div id="html_3f03454a16741451b9ff51130e543ed8" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Southport Avenue</h4>                 <b>Road Type:</b> tertiary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5158<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_0ccc128a29738be76dc3f3e46f494c66.setContent(html_3f03454a16741451b9ff51130e543ed8);
+            
+        
+
+        poly_line_0ecf84662616d050f1fccf988f903402.bindPopup(popup_0ccc128a29738be76dc3f3e46f494c66)
+        ;
+
+        
+    
+    
+            var poly_line_2aea07d99643b9392f7f089c259f91d7 = L.polyline(
+                [[41.8781445, -87.6322624], [41.8787766, -87.6322731]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_ca15317ad1a811ebb3dc190dd32b71c7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_851404be47bd815a65b7d2135f5cc594 = $(`<div id="html_851404be47bd815a65b7d2135f5cc594" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>South LaSalle Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5232<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_ca15317ad1a811ebb3dc190dd32b71c7.setContent(html_851404be47bd815a65b7d2135f5cc594);
+            
+        
+
+        poly_line_2aea07d99643b9392f7f089c259f91d7.bindPopup(popup_ca15317ad1a811ebb3dc190dd32b71c7)
+        ;
+
+        
+    
+    
+            var poly_line_0f3dccdc6d39a825c5bd4e63a68f7fa8 = L.polyline(
+                [[41.8968396, -87.6170654], [41.8968438, -87.6168932]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_41a210d3f57eeb3bdb0eb6dd2a6b7319 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e8a3008fb2c842146626d04623d8e757 = $(`<div id="html_e8a3008fb2c842146626d04623d8e757" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Chicago Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5233<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_41a210d3f57eeb3bdb0eb6dd2a6b7319.setContent(html_e8a3008fb2c842146626d04623d8e757);
+            
+        
+
+        poly_line_0f3dccdc6d39a825c5bd4e63a68f7fa8.bindPopup(popup_41a210d3f57eeb3bdb0eb6dd2a6b7319)
+        ;
+
+        
+    
+    
+            var poly_line_fe17ef6ce279fb8da1cf979ef7979e2b = L.polyline(
+                [[41.98256, -87.7960513], [41.9828209, -87.8002393]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_fb32e0f2de37be390669d1519ece0da6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_50d1f5e94fb536a2a95130e05689afa9 = $(`<div id="html_50d1f5e94fb536a2a95130e05689afa9" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>None</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.4861<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_fb32e0f2de37be390669d1519ece0da6.setContent(html_50d1f5e94fb536a2a95130e05689afa9);
+            
+        
+
+        poly_line_fe17ef6ce279fb8da1cf979ef7979e2b.bindPopup(popup_fb32e0f2de37be390669d1519ece0da6)
+        ;
+
+        
+    
+    
+            var poly_line_d6d6267d02de4c5194eb627d63131b31 = L.polyline(
+                [[41.8983888, -87.6240417], [41.8983863, -87.6242061]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_5bda6134ee03d93ec9d3a7ec9eed82b8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f2aff9f5b517e6ed3dee1f600a6f95ac = $(`<div id="html_f2aff9f5b517e6ed3dee1f600a6f95ac" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Chestnut Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5349<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_5bda6134ee03d93ec9d3a7ec9eed82b8.setContent(html_f2aff9f5b517e6ed3dee1f600a6f95ac);
+            
+        
+
+        poly_line_d6d6267d02de4c5194eb627d63131b31.bindPopup(popup_5bda6134ee03d93ec9d3a7ec9eed82b8)
+        ;
+
+        
+    
+    
+            var poly_line_668149bbe327c1195a9d8a54ccf62860 = L.polyline(
+                [[41.9721594, -87.7653556], [41.9741535, -87.7684744]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_1f83919c9f8efcb0f12a3f59e503db37 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1642f645fb11beca55231e10ffc5a23f = $(`<div id="html_1642f645fb11beca55231e10ffc5a23f" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>None</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.4957<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_1f83919c9f8efcb0f12a3f59e503db37.setContent(html_1642f645fb11beca55231e10ffc5a23f);
+            
+        
+
+        poly_line_668149bbe327c1195a9d8a54ccf62860.bindPopup(popup_1f83919c9f8efcb0f12a3f59e503db37)
+        ;
+
+        
+    
+    
+            var poly_line_82ffdf4aff1c58785cb346b49f947d34 = L.polyline(
+                [[41.9000765, -87.6202523], [41.9000455, -87.6219025]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_f0502723c33b69fd14aee26783bd8a52 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_20766a675d15ae51f0456b0d3191a63e = $(`<div id="html_20766a675d15ae51f0456b0d3191a63e" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Walton Place</h4>                 <b>Road Type:</b> tertiary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5266<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_f0502723c33b69fd14aee26783bd8a52.setContent(html_20766a675d15ae51f0456b0d3191a63e);
+            
+        
+
+        poly_line_82ffdf4aff1c58785cb346b49f947d34.bindPopup(popup_f0502723c33b69fd14aee26783bd8a52)
+        ;
+
+        
+    
+    
+            var poly_line_3f6b2f3bc2a179c4ad076ab23141bdda = L.polyline(
+                [[41.9485303, -87.7218462], [41.9476573, -87.7205499]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_9790f2165490bd9d80406cf8634ce10d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_518a44db4598b54112d3853525eba474 = $(`<div id="html_518a44db4598b54112d3853525eba474" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>None</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5131<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_9790f2165490bd9d80406cf8634ce10d.setContent(html_518a44db4598b54112d3853525eba474);
+            
+        
+
+        poly_line_3f6b2f3bc2a179c4ad076ab23141bdda.bindPopup(popup_9790f2165490bd9d80406cf8634ce10d)
+        ;
+
+        
+    
+    
+            var poly_line_92e71284d8a795fe9e216fa82c770aca = L.polyline(
+                [[41.8976809, -87.6176529], [41.8968396, -87.6170654]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_5ea2ed74c374ba2ce0db414dea7c9cfd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_304983cd60999a39e477b49e4530f3bc = $(`<div id="html_304983cd60999a39e477b49e4530f3bc" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Lake Shore Drive</h4>                 <b>Road Type:</b> tertiary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5291<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_5ea2ed74c374ba2ce0db414dea7c9cfd.setContent(html_304983cd60999a39e477b49e4530f3bc);
+            
+        
+
+        poly_line_92e71284d8a795fe9e216fa82c770aca.bindPopup(popup_5ea2ed74c374ba2ce0db414dea7c9cfd)
+        ;
+
+        
+    
+    
+            var poly_line_1d46b654a45982fd57a3625fa1cd3420 = L.polyline(
+                [[41.9614986, -87.676016], [41.9596697, -87.6759521]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_df8d5a3e01a51a45a800ae3f82a59f8b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fa9b27aa8a847249a8c16d4245f48735 = $(`<div id="html_fa9b27aa8a847249a8c16d4245f48735" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Wolcott Avenue</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5100<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_df8d5a3e01a51a45a800ae3f82a59f8b.setContent(html_fa9b27aa8a847249a8c16d4245f48735);
+            
+        
+
+        poly_line_1d46b654a45982fd57a3625fa1cd3420.bindPopup(popup_df8d5a3e01a51a45a800ae3f82a59f8b)
+        ;
+
+        
+    
+    
+            var poly_line_fa929e3c99033a69de6f27f09e77a432 = L.polyline(
+                [[41.8781073, -87.6352402], [41.8781233, -87.6337453]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_ce67dd4d54ba2d38c6195ed3f11af20f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_54e4e172b0bb1911642a790619062e9c = $(`<div id="html_54e4e172b0bb1911642a790619062e9c" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Jackson Boulevard</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5335<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_ce67dd4d54ba2d38c6195ed3f11af20f.setContent(html_54e4e172b0bb1911642a790619062e9c);
+            
+        
+
+        poly_line_fa929e3c99033a69de6f27f09e77a432.bindPopup(popup_ce67dd4d54ba2d38c6195ed3f11af20f)
+        ;
+
+        
+    
+    
+            var poly_line_e5d34b01d0df3d4a64d7392f610b843e = L.polyline(
+                [[41.9325569, -87.658713], [41.9343323, -87.6611949]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_503a619d4592fb5c625029b4c304b6e8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_09e46e0513265cc6334642da080eaad1 = $(`<div id="html_09e46e0513265cc6334642da080eaad1" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Lincoln Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5279<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_503a619d4592fb5c625029b4c304b6e8.setContent(html_09e46e0513265cc6334642da080eaad1);
+            
+        
+
+        poly_line_e5d34b01d0df3d4a64d7392f610b843e.bindPopup(popup_503a619d4592fb5c625029b4c304b6e8)
+        ;
+
+        
+    
+    
+            var poly_line_8ea35ee440c1cbee064165eefa911e7f = L.polyline(
+                [[41.880924, -87.6172438], [41.8828756, -87.6162822]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_e5044abcf85b33d75ed4011f7bcf3a67 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_446bbae6ec76e17057c296f5e2c38f53 = $(`<div id="html_446bbae6ec76e17057c296f5e2c38f53" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>South Jean Baptiste Point DuSable Lake Shore Drive</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5188<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_e5044abcf85b33d75ed4011f7bcf3a67.setContent(html_446bbae6ec76e17057c296f5e2c38f53);
+            
+        
+
+        poly_line_8ea35ee440c1cbee064165eefa911e7f.bindPopup(popup_e5044abcf85b33d75ed4011f7bcf3a67)
+        ;
+
+        
+    
+    
+            var poly_line_ac3fc979677bf8f22f78a4083c2e89c0 = L.polyline(
+                [[41.8832566, -87.6242327], [41.8843657, -87.6243437]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_82e3794a7d3105f22d193fe83a48cedf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a4fc819c8736627d997a2ee9f57931bc = $(`<div id="html_a4fc819c8736627d997a2ee9f57931bc" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Michigan Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5362<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_82e3794a7d3105f22d193fe83a48cedf.setContent(html_a4fc819c8736627d997a2ee9f57931bc);
+            
+        
+
+        poly_line_ac3fc979677bf8f22f78a4083c2e89c0.bindPopup(popup_82e3794a7d3105f22d193fe83a48cedf)
+        ;
+
+        
+    
+    
+            var poly_line_ee18bc90a30569c98a4c20f68fc9e119 = L.polyline(
+                [[41.8868112, -87.62446], [41.8868123, -87.6246388]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_74dddc1d48fef8e72ef31e6c3596f6b9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9c5bd3c92e3a86e0b1ac6fb7b83410ff = $(`<div id="html_9c5bd3c92e3a86e0b1ac6fb7b83410ff" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Wacker Place</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5130<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_74dddc1d48fef8e72ef31e6c3596f6b9.setContent(html_9c5bd3c92e3a86e0b1ac6fb7b83410ff);
+            
+        
+
+        poly_line_ee18bc90a30569c98a4c20f68fc9e119.bindPopup(popup_74dddc1d48fef8e72ef31e6c3596f6b9)
+        ;
+
+        
+    
+    
+            var poly_line_d5e5cab5af97025552686bbdf93c7320 = L.polyline(
+                [[41.9721594, -87.7653556], [41.973932, -87.7686633]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_39956eeef91004f91894655f8a539733 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2bf3b26a529a7c9a853a3bd65c4c296 = $(`<div id="html_e2bf3b26a529a7c9a853a3bd65c4c296" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>Kennedy Expressway</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5090<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_39956eeef91004f91894655f8a539733.setContent(html_e2bf3b26a529a7c9a853a3bd65c4c296);
+            
+        
+
+        poly_line_d5e5cab5af97025552686bbdf93c7320.bindPopup(popup_39956eeef91004f91894655f8a539733)
+        ;
+
+        
+    
+    
+            var poly_line_da23ef63ec6c0d3b60616b28166f87ea = L.polyline(
+                [[41.8782108, -87.6276919], [41.8782617, -87.6260987]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_f146577a1372a11e5bbed5db397f794c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_64e10e61638986b56924bcfe69214053 = $(`<div id="html_64e10e61638986b56924bcfe69214053" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Jackson Boulevard</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5264<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_f146577a1372a11e5bbed5db397f794c.setContent(html_64e10e61638986b56924bcfe69214053);
+            
+        
+
+        poly_line_da23ef63ec6c0d3b60616b28166f87ea.bindPopup(popup_f146577a1372a11e5bbed5db397f794c)
+        ;
+
+        
+    
+    
+            var poly_line_a28759021d1481fc6ada091efd9c73c0 = L.polyline(
+                [[41.9579071, -87.6723064], [41.9578822, -87.6738757]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_6b7eb32a6b7ac56941dbfeb135bc76f3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d37adcaf7a3f6df08208cdc5d214e8c4 = $(`<div id="html_d37adcaf7a3f6df08208cdc5d214e8c4" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Berteau Avenue</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5020<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_6b7eb32a6b7ac56941dbfeb135bc76f3.setContent(html_d37adcaf7a3f6df08208cdc5d214e8c4);
+            
+        
+
+        poly_line_a28759021d1481fc6ada091efd9c73c0.bindPopup(popup_6b7eb32a6b7ac56941dbfeb135bc76f3)
+        ;
+
+        
+    
+    
+            var poly_line_8c2dfe7a99870a5e4d11502d02b1eda1 = L.polyline(
+                [[41.8984693, -87.6181914], [41.8992943, -87.6187337]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_fde26959e29917933bd2f1853acc30de = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a41a125c15a7a60f95dffe99f48767fd = $(`<div id="html_a41a125c15a7a60f95dffe99f48767fd" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Lake Shore Drive</h4>                 <b>Road Type:</b> tertiary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5266<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_fde26959e29917933bd2f1853acc30de.setContent(html_a41a125c15a7a60f95dffe99f48767fd);
+            
+        
+
+        poly_line_8c2dfe7a99870a5e4d11502d02b1eda1.bindPopup(popup_fde26959e29917933bd2f1853acc30de)
+        ;
+
+        
+    
+    
+            var poly_line_df7bcb9788ba0d273aa0727ce20212bb = L.polyline(
+                [[41.8967414, -87.6241758], [41.8967656, -87.621834]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_fc0fb1a2951406cdf659bacf321b223b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_423c835724579ad9b016d507cf3af131 = $(`<div id="html_423c835724579ad9b016d507cf3af131" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Chicago Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5291<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_fc0fb1a2951406cdf659bacf321b223b.setContent(html_423c835724579ad9b016d507cf3af131);
+            
+        
+
+        poly_line_df7bcb9788ba0d273aa0727ce20212bb.bindPopup(popup_fc0fb1a2951406cdf659bacf321b223b)
+        ;
+
+        
+    
+    
+            var poly_line_9acb7beddb0e0158cf14863e8f368378 = L.polyline(
+                [[41.894289, -87.6153782], [41.895086, -87.6158998]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_417a433e53b8e70f393e682ea8d32f9f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_45c1f0693281005417079cfd3e2c29e6 = $(`<div id="html_45c1f0693281005417079cfd3e2c29e6" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Lake Shore Drive</h4>                 <b>Road Type:</b> tertiary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5004<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_417a433e53b8e70f393e682ea8d32f9f.setContent(html_45c1f0693281005417079cfd3e2c29e6);
+            
+        
+
+        poly_line_9acb7beddb0e0158cf14863e8f368378.bindPopup(popup_417a433e53b8e70f393e682ea8d32f9f)
+        ;
+
+        
+    
+    
+            var poly_line_7ab016f93c0fc4b764bdcabebbc1ae81 = L.polyline(
+                [[41.8968396, -87.6170654], [41.8976809, -87.6176529]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_475878a4a11f703d7680554e30d08771 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f5ccec6e5cdc50b592040c9b163ede8a = $(`<div id="html_f5ccec6e5cdc50b592040c9b163ede8a" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Lake Shore Drive</h4>                 <b>Road Type:</b> tertiary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5233<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_475878a4a11f703d7680554e30d08771.setContent(html_f5ccec6e5cdc50b592040c9b163ede8a);
+            
+        
+
+        poly_line_7ab016f93c0fc4b764bdcabebbc1ae81.bindPopup(popup_475878a4a11f703d7680554e30d08771)
+        ;
+
+        
+    
+    
+            var poly_line_d0ab1bf9c5e2355fc971b7c3ab3b5519 = L.polyline(
+                [[41.9311325, -87.6371345], [41.9322935, -87.6386812]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_ace1984798cba83488f49561080815ee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ab74d9ada39bc4bcf5cb2494981aad90 = $(`<div id="html_ab74d9ada39bc4bcf5cb2494981aad90" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Cannon Drive</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5259<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_ace1984798cba83488f49561080815ee.setContent(html_ab74d9ada39bc4bcf5cb2494981aad90);
+            
+        
+
+        poly_line_d0ab1bf9c5e2355fc971b7c3ab3b5519.bindPopup(popup_ace1984798cba83488f49561080815ee)
+        ;
+
+        
+    
+    
+            var poly_line_391c57102f84f975632685100e63704a = L.polyline(
+                [[41.9485303, -87.7218462], [41.9431904, -87.7167274]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_7a45377e6a31bdc2c747a70e3d5552ac = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f7fe90d73dbee1291b4bc998a36d0668 = $(`<div id="html_f7fe90d73dbee1291b4bc998a36d0668" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>Kennedy Expressway</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5284<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_7a45377e6a31bdc2c747a70e3d5552ac.setContent(html_f7fe90d73dbee1291b4bc998a36d0668);
+            
+        
+
+        poly_line_391c57102f84f975632685100e63704a.bindPopup(popup_7a45377e6a31bdc2c747a70e3d5552ac)
+        ;
+
+        
+    
+    
+            var poly_line_6e923f5d236aa554b977a46d025c939a = L.polyline(
+                [[41.9615474, -87.6724109], [41.9615695, -87.6708455]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_6ee481ab1dc97f423305a9b10e9d78ce = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_94bd04a176f6fe58623fec20db720b48 = $(`<div id="html_94bd04a176f6fe58623fec20db720b48" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Montrose Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5203<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_6ee481ab1dc97f423305a9b10e9d78ce.setContent(html_94bd04a176f6fe58623fec20db720b48);
+            
+        
+
+        poly_line_6e923f5d236aa554b977a46d025c939a.bindPopup(popup_6ee481ab1dc97f423305a9b10e9d78ce)
+        ;
+
+        
+    
+    
+            var poly_line_2780f8461b8a0c1ba41145308cb77988 = L.polyline(
+                [[41.9254912, -87.6463364], [41.9255275, -87.643933]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_cd0d0287f0bfb24600566eb531babf00 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_155e7e5d0afaf0b842078ad000286e64 = $(`<div id="html_155e7e5d0afaf0b842078ad000286e64" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Fullerton Parkway</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5259<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_cd0d0287f0bfb24600566eb531babf00.setContent(html_155e7e5d0afaf0b842078ad000286e64);
+            
+        
+
+        poly_line_2780f8461b8a0c1ba41145308cb77988.bindPopup(popup_cd0d0287f0bfb24600566eb531babf00)
+        ;
+
+        
+    
+    
+            var poly_line_610b230d7b6a9d5efb40e564bdf02f61 = L.polyline(
+                [[41.9322935, -87.6386812], [41.9327267, -87.6391752]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_59b9be710f0938c853296a23cfc44dc7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_42c6203d41554603bde9f365f8b720cd = $(`<div id="html_42c6203d41554603bde9f365f8b720cd" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Cannon Drive</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5259<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_59b9be710f0938c853296a23cfc44dc7.setContent(html_42c6203d41554603bde9f365f8b720cd);
+            
+        
+
+        poly_line_610b230d7b6a9d5efb40e564bdf02f61.bindPopup(popup_59b9be710f0938c853296a23cfc44dc7)
+        ;
+
+        
+    
+    
+            var poly_line_52a35da1102d2247ee40b63610656999 = L.polyline(
+                [[41.8983888, -87.6240417], [41.8983863, -87.6242061]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_ee9e9b07d662acfe107ef67cc8074d92 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7359280c9f1d09d569f71536cba7f37b = $(`<div id="html_7359280c9f1d09d569f71536cba7f37b" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Chestnut Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5349<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_ee9e9b07d662acfe107ef67cc8074d92.setContent(html_7359280c9f1d09d569f71536cba7f37b);
+            
+        
+
+        poly_line_52a35da1102d2247ee40b63610656999.bindPopup(popup_ee9e9b07d662acfe107ef67cc8074d92)
+        ;
+
+        
+    
+    
+            var poly_line_3fceafd8664c1425f6d56f33aea3d474 = L.polyline(
+                [[41.9578822, -87.6738757], [41.9579071, -87.6723064]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_2fab64f7a9836c9610ccd720a7768007 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cd8f405b60926d349ada7540018b0fe1 = $(`<div id="html_cd8f405b60926d349ada7540018b0fe1" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Berteau Avenue</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5020<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_2fab64f7a9836c9610ccd720a7768007.setContent(html_cd8f405b60926d349ada7540018b0fe1);
+            
+        
+
+        poly_line_3fceafd8664c1425f6d56f33aea3d474.bindPopup(popup_2fab64f7a9836c9610ccd720a7768007)
+        ;
+
+        
+    
+    
+            var poly_line_3d390e2c156728f7b44e27f2d98dc425 = L.polyline(
+                [[41.9543572, -87.6642173], [41.952547, -87.6641664]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_3419fe2db1fa53235560e71dc578d803 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f87fef88fadabbf8a56a8e3f38044446 = $(`<div id="html_f87fef88fadabbf8a56a8e3f38044446" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Southport Avenue</h4>                 <b>Road Type:</b> tertiary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5203<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_3419fe2db1fa53235560e71dc578d803.setContent(html_f87fef88fadabbf8a56a8e3f38044446);
+            
+        
+
+        poly_line_3d390e2c156728f7b44e27f2d98dc425.bindPopup(popup_3419fe2db1fa53235560e71dc578d803)
+        ;
+
+        
+    
+    
+            var poly_line_dfc0a50abfdfc8bc1640c7ab80f2174d = L.polyline(
+                [[41.9364347, -87.6478115], [41.9356101, -87.6471628]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_78e66c03b7a2a0a7558490df7d852145 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_375f41093ad6b556094fb19969317851 = $(`<div id="html_375f41093ad6b556094fb19969317851" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Clark Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5259<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_78e66c03b7a2a0a7558490df7d852145.setContent(html_375f41093ad6b556094fb19969317851);
+            
+        
+
+        poly_line_dfc0a50abfdfc8bc1640c7ab80f2174d.bindPopup(popup_78e66c03b7a2a0a7558490df7d852145)
+        ;
+
+        
+    
+    
+            var poly_line_387d31439d45715bfcb012c80c2ad4c3 = L.polyline(
+                [[41.8794803, -87.6277233], [41.8794443, -87.629327]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_b5b61f859fbafa828c4c4dd18ff34128 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d6373a1591760766be2fd806ee322b72 = $(`<div id="html_d6373a1591760766be2fd806ee322b72" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Adams Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5262<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_b5b61f859fbafa828c4c4dd18ff34128.setContent(html_d6373a1591760766be2fd806ee322b72);
+            
+        
+
+        poly_line_387d31439d45715bfcb012c80c2ad4c3.bindPopup(popup_b5b61f859fbafa828c4c4dd18ff34128)
+        ;
+
+        
+    
+    
+            var poly_line_92b2d6b919ff12dc25d78c0e52b04f41 = L.polyline(
+                [[41.8781073, -87.6352402], [41.878709, -87.6352561]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_243b85c903e3e86124c4c1c43c62283d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f22b81a8cd315a709217fec24d34dc73 = $(`<div id="html_f22b81a8cd315a709217fec24d34dc73" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>South Franklin Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5335<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_243b85c903e3e86124c4c1c43c62283d.setContent(html_f22b81a8cd315a709217fec24d34dc73);
+            
+        
+
+        poly_line_92b2d6b919ff12dc25d78c0e52b04f41.bindPopup(popup_243b85c903e3e86124c4c1c43c62283d)
+        ;
+
+        
+    
+    
+            var poly_line_8de3121f2a3d97f05fd42b60f61b8ece = L.polyline(
+                [[41.9307235, -87.6439128], [41.931343, -87.6442742]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_11229345e956c5e3aa533eef1323e750 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8bced8510779703b77eb34106ee91f30 = $(`<div id="html_8bced8510779703b77eb34106ee91f30" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Clark Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5259<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_11229345e956c5e3aa533eef1323e750.setContent(html_8bced8510779703b77eb34106ee91f30);
+            
+        
+
+        poly_line_8de3121f2a3d97f05fd42b60f61b8ece.bindPopup(popup_11229345e956c5e3aa533eef1323e750)
+        ;
+
+        
+    
+    
+            var poly_line_58dafb77449fa5c2414c3a35cbc30066 = L.polyline(
+                [[41.8976428, -87.620193], [41.897618, -87.6218518]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_00d95ecf31abbc623dda9a4606d78f34 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1323bc8ebe6bc0553f9ef472415268bf = $(`<div id="html_1323bc8ebe6bc0553f9ef472415268bf" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Pearson Street</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5210<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_00d95ecf31abbc623dda9a4606d78f34.setContent(html_1323bc8ebe6bc0553f9ef472415268bf);
+            
+        
+
+        poly_line_58dafb77449fa5c2414c3a35cbc30066.bindPopup(popup_00d95ecf31abbc623dda9a4606d78f34)
+        ;
+
+        
+    
+    
+            var poly_line_a5ca1bb5af6e392196a53f68c03b1865 = L.polyline(
+                [[41.9256191, -87.6391109], [41.9256257, -87.6381157]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_53daa5ae28d9de667c6fc5fd92f04e17 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fce39f230db558ae3d0efc568970f135 = $(`<div id="html_fce39f230db558ae3d0efc568970f135" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Fullerton Parkway</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5259<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_53daa5ae28d9de667c6fc5fd92f04e17.setContent(html_fce39f230db558ae3d0efc568970f135);
+            
+        
+
+        poly_line_a5ca1bb5af6e392196a53f68c03b1865.bindPopup(popup_53daa5ae28d9de667c6fc5fd92f04e17)
+        ;
+
+        
+    
+    
+            var poly_line_7a075d61dc6674439fe3d2bc088a29ac = L.polyline(
+                [[41.8780828, -87.6369317], [41.8780902, -87.6366927]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_8f3638a4a1be2f68bb80da029ffc974a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_50fc5dd00f99bdf8499147b3aad3ff83 = $(`<div id="html_50fc5dd00f99bdf8499147b3aad3ff83" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Jackson Boulevard</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5335<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_8f3638a4a1be2f68bb80da029ffc974a.setContent(html_50fc5dd00f99bdf8499147b3aad3ff83);
+            
+        
+
+        poly_line_7a075d61dc6674439fe3d2bc088a29ac.bindPopup(popup_8f3638a4a1be2f68bb80da029ffc974a)
+        ;
+
+        
+    
+    
+            var poly_line_e9cb2bd51524a1cc8cb7292c6a2d235f = L.polyline(
+                [[41.9562158, -87.644999], [41.9602535, -87.6460942]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_c9502ed8967c05ea0020b62e2a56d16d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3caa4df93a0e9b1f92f3f0f8b3174e1b = $(`<div id="html_3caa4df93a0e9b1f92f3f0f8b3174e1b" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Jean Baptiste Point DuSable Lake Shore Drive</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5186<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_c9502ed8967c05ea0020b62e2a56d16d.setContent(html_3caa4df93a0e9b1f92f3f0f8b3174e1b);
+            
+        
+
+        poly_line_e9cb2bd51524a1cc8cb7292c6a2d235f.bindPopup(popup_c9502ed8967c05ea0020b62e2a56d16d)
+        ;
+
+        
+    
+    
+            var poly_line_71be540d0df263bceb314e81defa6541 = L.polyline(
+                [[41.897618, -87.6218518], [41.8984222, -87.6218667]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_c0e9ead345bc50cd23314d3a62f6eeda = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_adb6e8586003a6d557824e0f17ea1780 = $(`<div id="html_adb6e8586003a6d557824e0f17ea1780" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Mies van der Rohe Way</h4>                 <b>Road Type:</b> tertiary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5249<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_c0e9ead345bc50cd23314d3a62f6eeda.setContent(html_adb6e8586003a6d557824e0f17ea1780);
+            
+        
+
+        poly_line_71be540d0df263bceb314e81defa6541.bindPopup(popup_c0e9ead345bc50cd23314d3a62f6eeda)
+        ;
+
+        
+    
+    
+            var poly_line_70931e69b9464948b55cff90bbc848de = L.polyline(
+                [[41.9390726, -87.6367597], [41.940568, -87.6380877]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_15c22ce78ec6830011226c0997a0b433 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2613c9862c16b40a41424c89e7958bc = $(`<div id="html_e2613c9862c16b40a41424c89e7958bc" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>None</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5262<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_15c22ce78ec6830011226c0997a0b433.setContent(html_e2613c9862c16b40a41424c89e7958bc);
+            
+        
+
+        poly_line_70931e69b9464948b55cff90bbc848de.bindPopup(popup_15c22ce78ec6830011226c0997a0b433)
+        ;
+
+        
+    
+    
+            var poly_line_1d9fd2d8511988d85db745b1c5079392 = L.polyline(
+                [[41.9058022, -87.6612295], [41.9034349, -87.6616666]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_ba408baf87fb52a515c6a6095c5cc209 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2b996f1f54ac2dc1464dbb052f53b8f9 = $(`<div id="html_2b996f1f54ac2dc1464dbb052f53b8f9" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>None</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5292<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_ba408baf87fb52a515c6a6095c5cc209.setContent(html_2b996f1f54ac2dc1464dbb052f53b8f9);
+            
+        
+
+        poly_line_1d9fd2d8511988d85db745b1c5079392.bindPopup(popup_ba408baf87fb52a515c6a6095c5cc209)
+        ;
+
+        
+    
+    
+            var poly_line_e6afab21ebe83e3a8a4534aaaf330e5c = L.polyline(
+                [[41.9308994, -87.6940861], [41.9298147, -87.6919528]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_249e98a4d8e1d12384d979a8feeecdcb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f6b3d9b9ca079e0e022a2f1da6ebc9f = $(`<div id="html_1f6b3d9b9ca079e0e022a2f1da6ebc9f" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>Kennedy Expressway</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5398<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_249e98a4d8e1d12384d979a8feeecdcb.setContent(html_1f6b3d9b9ca079e0e022a2f1da6ebc9f);
+            
+        
+
+        poly_line_e6afab21ebe83e3a8a4534aaaf330e5c.bindPopup(popup_249e98a4d8e1d12384d979a8feeecdcb)
+        ;
+
+        
+    
+    
+            var poly_line_60487f442d7068a92aa1d04e71cc1cb4 = L.polyline(
+                [[41.9196722, -87.673174], [41.9201248, -87.6739496]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_d7f813d8496043137446eb29b2e82e0c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_23cb8c99b9bf17301b576af7e73256d2 = $(`<div id="html_23cb8c99b9bf17301b576af7e73256d2" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>Kennedy Expressway</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5360<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_d7f813d8496043137446eb29b2e82e0c.setContent(html_23cb8c99b9bf17301b576af7e73256d2);
+            
+        
+
+        poly_line_60487f442d7068a92aa1d04e71cc1cb4.bindPopup(popup_d7f813d8496043137446eb29b2e82e0c)
+        ;
+
+        
+    
+    
+            var poly_line_102ec71ff403e895ab95a1e436e31dbc = L.polyline(
+                [[41.8768308, -87.6352035], [41.8781073, -87.6352402]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_96f83735443ca1ec8d352e284c36ed8a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_df5bac3182731e12c8980c1d823bc2aa = $(`<div id="html_df5bac3182731e12c8980c1d823bc2aa" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>South Franklin Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5335<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_96f83735443ca1ec8d352e284c36ed8a.setContent(html_df5bac3182731e12c8980c1d823bc2aa);
+            
+        
+
+        poly_line_102ec71ff403e895ab95a1e436e31dbc.bindPopup(popup_96f83735443ca1ec8d352e284c36ed8a)
+        ;
+
+        
+    
+    
+            var poly_line_157b72a66e03fc9a1477f28673f5bd4e = L.polyline(
+                [[41.8745796, -87.7062457], [41.874567, -87.7101996]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_69b6a7c3fe72052d667711a39958fe73 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d39fc0afa56ff4c54054cb27fbd6c3c5 = $(`<div id="html_d39fc0afa56ff4c54054cb27fbd6c3c5" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>None</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5335<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_69b6a7c3fe72052d667711a39958fe73.setContent(html_d39fc0afa56ff4c54054cb27fbd6c3c5);
+            
+        
+
+        poly_line_157b72a66e03fc9a1477f28673f5bd4e.bindPopup(popup_69b6a7c3fe72052d667711a39958fe73)
+        ;
+
+        
+    
+    
+            var poly_line_6e0727f87807d78e5c223a593bff5c37 = L.polyline(
+                [[41.8769665, -87.6241746], [41.8758902, -87.6232986]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_d92788268c1200df26bf77b39bde50e7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c2bb439838dc4eb516d130db5b11812e = $(`<div id="html_c2bb439838dc4eb516d130db5b11812e" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Congress Plaza Drive</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5221<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_d92788268c1200df26bf77b39bde50e7.setContent(html_c2bb439838dc4eb516d130db5b11812e);
+            
+        
+
+        poly_line_6e0727f87807d78e5c223a593bff5c37.bindPopup(popup_d92788268c1200df26bf77b39bde50e7)
+        ;
+
+        
+    
+    
+            var poly_line_12378f5308dde90f78a97f2c0847d1a5 = L.polyline(
+                [[41.8795564, -87.6244445], [41.8782936, -87.624413]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_1136c02c0cb718aa350b52a91e5f71c1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb6c9c53cf14a057cc9d55da046a9bd7 = $(`<div id="html_bb6c9c53cf14a057cc9d55da046a9bd7" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>South Michigan Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5233<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_1136c02c0cb718aa350b52a91e5f71c1.setContent(html_bb6c9c53cf14a057cc9d55da046a9bd7);
+            
+        
+
+        poly_line_12378f5308dde90f78a97f2c0847d1a5.bindPopup(popup_1136c02c0cb718aa350b52a91e5f71c1)
+        ;
+
+        
+    
+    
+            var poly_line_e1af4f011a05508cfdd6c95e11981a4a = L.polyline(
+                [[41.96167, -87.6635425], [41.9616649, -87.6639211]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_4bcff38e77993e38552acaccbec52504 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9f617f69aa3ade04b5df4987decc8f79 = $(`<div id="html_9f617f69aa3ade04b5df4987decc8f79" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Montrose Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5203<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_4bcff38e77993e38552acaccbec52504.setContent(html_9f617f69aa3ade04b5df4987decc8f79);
+            
+        
+
+        poly_line_e1af4f011a05508cfdd6c95e11981a4a.bindPopup(popup_4bcff38e77993e38552acaccbec52504)
+        ;
+
+        
+    
+    
+            var poly_line_b3552f645105b8cda9de4befdf850cbd = L.polyline(
+                [[41.8966918, -87.6268474], [41.8975453, -87.6268881]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_6f73dc29f818b872e39229cb95d8a4a0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7bf444df5f0828014cc534f596503183 = $(`<div id="html_7bf444df5f0828014cc534f596503183" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Wabash Avenue</h4>                 <b>Road Type:</b> tertiary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5251<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_6f73dc29f818b872e39229cb95d8a4a0.setContent(html_7bf444df5f0828014cc534f596503183);
+            
+        
+
+        poly_line_b3552f645105b8cda9de4befdf850cbd.bindPopup(popup_6f73dc29f818b872e39229cb95d8a4a0)
+        ;
+
+        
+    
+    
+            var poly_line_49705cc9186fdce61bea50dc6b987c5d = L.polyline(
+                [[41.8782936, -87.624413], [41.87701, -87.6243796]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_933b957609270242138002feee58e0e2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12240ac865bbb6e5fa3b657d29b9e737 = $(`<div id="html_12240ac865bbb6e5fa3b657d29b9e737" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>South Michigan Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5233<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_933b957609270242138002feee58e0e2.setContent(html_12240ac865bbb6e5fa3b657d29b9e737);
+            
+        
+
+        poly_line_49705cc9186fdce61bea50dc6b987c5d.bindPopup(popup_933b957609270242138002feee58e0e2)
+        ;
+
+        
+    
+    
+            var poly_line_da99d601a67394883e4e12569e4860fa = L.polyline(
+                [[41.9543572, -87.6642173], [41.9543646, -87.6635392]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_0188256b5d91a2efc35941666e41e5fe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dee065e6dde6cb3fb0ee7562fa28838d = $(`<div id="html_dee065e6dde6cb3fb0ee7562fa28838d" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Irving Park Road</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5216<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_0188256b5d91a2efc35941666e41e5fe.setContent(html_dee065e6dde6cb3fb0ee7562fa28838d);
+            
+        
+
+        poly_line_da99d601a67394883e4e12569e4860fa.bindPopup(popup_0188256b5d91a2efc35941666e41e5fe)
+        ;
+
+        
+    
+    
+            var poly_line_3109ab094d484fd458038706c8f35b49 = L.polyline(
+                [[41.8076255, -87.7432646], [41.8076108, -87.7443733]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_49ce79d7423ad7ae976a564efa904dbd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_40333d2b5633233b69f248f490dafca0 = $(`<div id="html_40333d2b5633233b69f248f490dafca0" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West 47th Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5163<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_49ce79d7423ad7ae976a564efa904dbd.setContent(html_40333d2b5633233b69f248f490dafca0);
+            
+        
+
+        poly_line_3109ab094d484fd458038706c8f35b49.bindPopup(popup_49ce79d7423ad7ae976a564efa904dbd)
+        ;
+
+        
+    
+    
+            var poly_line_b93a8da537b2d84c4d9e5083decdbce6 = L.polyline(
+                [[41.8943014, -87.6559762], [41.8932764, -87.6544768]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_38db5fde56facfb79af55a6a8fbac5ef = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_55cd6539f48b22de579c80484e6fe03e = $(`<div id="html_55cd6539f48b22de579c80484e6fe03e" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>Kennedy Expressway</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5354<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_38db5fde56facfb79af55a6a8fbac5ef.setContent(html_55cd6539f48b22de579c80484e6fe03e);
+            
+        
+
+        poly_line_b93a8da537b2d84c4d9e5083decdbce6.bindPopup(popup_38db5fde56facfb79af55a6a8fbac5ef)
+        ;
+
+        
+    
+    
+            var poly_line_05f9581db500e7037fb92736cc8e4357 = L.polyline(
+                [[41.9373438, -87.7040013], [41.9391319, -87.7068031]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_ca69ca0755a2e7bd9442d109da0d3c89 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_484a436cf6039eeb118f2a2888ea9aa6 = $(`<div id="html_484a436cf6039eeb118f2a2888ea9aa6" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>None</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5172<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_ca69ca0755a2e7bd9442d109da0d3c89.setContent(html_484a436cf6039eeb118f2a2888ea9aa6);
+            
+        
+
+        poly_line_05f9581db500e7037fb92736cc8e4357.bindPopup(popup_ca69ca0755a2e7bd9442d109da0d3c89)
+        ;
+
+        
+    
+    
+            var poly_line_4f0b06054bf623f45c9debdea3ac2559 = L.polyline(
+                [[41.9745034, -87.7701986], [41.9734604, -87.7683625]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_7a7c1981d68e841c6bd7eec34bf0a63b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b7eec5c8fd973661cbc7821b2ebb0ea = $(`<div id="html_0b7eec5c8fd973661cbc7821b2ebb0ea" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>Kennedy Expressway</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5090<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_7a7c1981d68e841c6bd7eec34bf0a63b.setContent(html_0b7eec5c8fd973661cbc7821b2ebb0ea);
+            
+        
+
+        poly_line_4f0b06054bf623f45c9debdea3ac2559.bindPopup(popup_7a7c1981d68e841c6bd7eec34bf0a63b)
+        ;
+
+        
+    
+    
+            var poly_line_d00f3951903eaef4b3d9e5a87ffdd6dc = L.polyline(
+                [[41.9208312, -87.675191], [41.922669, -87.6778153]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_1078bc4e0d26f202ee0a2eb24e6609c8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_00eea5da19a15ffd858039554399cfcf = $(`<div id="html_00eea5da19a15ffd858039554399cfcf" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>None</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5305<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_1078bc4e0d26f202ee0a2eb24e6609c8.setContent(html_00eea5da19a15ffd858039554399cfcf);
+            
+        
+
+        poly_line_d00f3951903eaef4b3d9e5a87ffdd6dc.bindPopup(popup_1078bc4e0d26f202ee0a2eb24e6609c8)
+        ;
+
+        
+    
+    
+            var poly_line_11d428247855729cc9243f8157f1d629 = L.polyline(
+                [[41.9579071, -87.6723064], [41.9597295, -87.672366]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_302292fd5e19ddd3b62d98410fe88b82 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1a662603a96740b475b024317f8c6dd3 = $(`<div id="html_1a662603a96740b475b024317f8c6dd3" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Hermitage Avenue</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5085<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_302292fd5e19ddd3b62d98410fe88b82.setContent(html_1a662603a96740b475b024317f8c6dd3);
+            
+        
+
+        poly_line_11d428247855729cc9243f8157f1d629.bindPopup(popup_302292fd5e19ddd3b62d98410fe88b82)
+        ;
+
+        
+    
+    
+            var poly_line_64f6c5c3aab0371d7a6a2c472d89d5b8 = L.polyline(
+                [[41.8768531, -87.6337073], [41.8768308, -87.6352035]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_0979d3c2a6e0c7c28633ca9faa9b2738 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dc0486ea4d889067f6d36b44019d57aa = $(`<div id="html_dc0486ea4d889067f6d36b44019d57aa" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Van Buren Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5232<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_0979d3c2a6e0c7c28633ca9faa9b2738.setContent(html_dc0486ea4d889067f6d36b44019d57aa);
+            
+        
+
+        poly_line_64f6c5c3aab0371d7a6a2c472d89d5b8.bindPopup(popup_0979d3c2a6e0c7c28633ca9faa9b2738)
+        ;
+
+        
+    
+    
+            var poly_line_a481a9061aaaa6c0cb4d3c7b5bdd3594 = L.polyline(
+                [[41.9543801, -87.6622248], [41.9543708, -87.6629315]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_3b56c2c894e14698c61e0e26608678eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6c0204ac25ad4459c39fe34bd63cf817 = $(`<div id="html_6c0204ac25ad4459c39fe34bd63cf817" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Irving Park Road</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5139<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_3b56c2c894e14698c61e0e26608678eb.setContent(html_6c0204ac25ad4459c39fe34bd63cf817);
+            
+        
+
+        poly_line_a481a9061aaaa6c0cb4d3c7b5bdd3594.bindPopup(popup_3b56c2c894e14698c61e0e26608678eb)
+        ;
+
+        
+    
+    
+            var poly_line_41480f08f3dda97648a0bbf7ee8b99ee = L.polyline(
+                [[41.9543572, -87.6642173], [41.9543371, -87.6658398]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_bd29461ae171bc91c3d197f4d8a8eaaa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_00f343e111099ba702ce0e86db31dacb = $(`<div id="html_00f343e111099ba702ce0e86db31dacb" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Irving Park Road</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5250<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_bd29461ae171bc91c3d197f4d8a8eaaa.setContent(html_00f343e111099ba702ce0e86db31dacb);
+            
+        
+
+        poly_line_41480f08f3dda97648a0bbf7ee8b99ee.bindPopup(popup_bd29461ae171bc91c3d197f4d8a8eaaa)
+        ;
+
+        
+    
+    
+            var poly_line_88389e5d1b8b8e4810755448c00a1e76 = L.polyline(
+                [[41.8769665, -87.6241746], [41.8758902, -87.6232986]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_3ffc47c4bf9706dd3cf5d956e629e9f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_697a58ed4026f5e19813f24be49020bc = $(`<div id="html_697a58ed4026f5e19813f24be49020bc" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Congress Plaza Drive</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5221<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_3ffc47c4bf9706dd3cf5d956e629e9f7.setContent(html_697a58ed4026f5e19813f24be49020bc);
+            
+        
+
+        poly_line_88389e5d1b8b8e4810755448c00a1e76.bindPopup(popup_3ffc47c4bf9706dd3cf5d956e629e9f7)
+        ;
+
+        
+    
+    
+            var poly_line_6d3e22224b901318c64d80bcd96579d1 = L.polyline(
+                [[41.9614791, -87.6775017], [41.9614608, -87.6789621]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_9f497fe90910089a9d5011bccf7867f6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1dfa61af56b7b9130c077717db9b0990 = $(`<div id="html_1dfa61af56b7b9130c077717db9b0990" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Montrose Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5241<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_9f497fe90910089a9d5011bccf7867f6.setContent(html_1dfa61af56b7b9130c077717db9b0990);
+            
+        
+
+        poly_line_6d3e22224b901318c64d80bcd96579d1.bindPopup(popup_9f497fe90910089a9d5011bccf7867f6)
+        ;
+
+        
+    
+    
+            var poly_line_223b52fb4723bdd0d0db6f15f9662aac = L.polyline(
+                [[41.9598192, -87.6652762], [41.9589091, -87.6649053]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_4c5762dfcd21ad1e9ec39857c17a49bc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8e7bbaa82d22224e36c87b355df96416 = $(`<div id="html_8e7bbaa82d22224e36c87b355df96416" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Clark Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5141<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_4c5762dfcd21ad1e9ec39857c17a49bc.setContent(html_8e7bbaa82d22224e36c87b355df96416);
+            
+        
+
+        poly_line_223b52fb4723bdd0d0db6f15f9662aac.bindPopup(popup_4c5762dfcd21ad1e9ec39857c17a49bc)
+        ;
+
+        
+    
+    
+            var poly_line_e9d4a5b09fe6619732804e2f9ae53af8 = L.polyline(
+                [[41.9543023, -87.6691098], [41.9542907, -87.6698477]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_903b486880fd706febb1125e0c02a8ba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8f3831792c9fba460abf3e9344c88e8b = $(`<div id="html_8f3831792c9fba460abf3e9344c88e8b" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Irving Park Road</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5250<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_903b486880fd706febb1125e0c02a8ba.setContent(html_8f3831792c9fba460abf3e9344c88e8b);
+            
+        
+
+        poly_line_e9d4a5b09fe6619732804e2f9ae53af8.bindPopup(popup_903b486880fd706febb1125e0c02a8ba)
+        ;
+
+        
+    
+    
+            var poly_line_ca92289e7ecd55e7f233be3e870828d1 = L.polyline(
+                [[41.8950178, -87.6571137], [41.8943014, -87.6559762]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_eaf8ef6ded960e8462f139832d75fe44 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2d9e3da131ce63a5f5ed73b42c4695da = $(`<div id="html_2d9e3da131ce63a5f5ed73b42c4695da" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>Kennedy Expressway</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5308<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_eaf8ef6ded960e8462f139832d75fe44.setContent(html_2d9e3da131ce63a5f5ed73b42c4695da);
+            
+        
+
+        poly_line_ca92289e7ecd55e7f233be3e870828d1.bindPopup(popup_eaf8ef6ded960e8462f139832d75fe44)
+        ;
+
+        
+    
+    
+            var poly_line_617893666796bbe6d6a29e4430d1105f = L.polyline(
+                [[41.9300096, -87.6434305], [41.9303311, -87.6424529]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_0b21f7337d9ee0938c54dc6775791039 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eea6a9150c792b0ad652210f7bea5f1f = $(`<div id="html_eea6a9150c792b0ad652210f7bea5f1f" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Wrightwood Avenue</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5115<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_0b21f7337d9ee0938c54dc6775791039.setContent(html_eea6a9150c792b0ad652210f7bea5f1f);
+            
+        
+
+        poly_line_617893666796bbe6d6a29e4430d1105f.bindPopup(popup_0b21f7337d9ee0938c54dc6775791039)
+        ;
+
+        
+    
+    
+            var poly_line_5005df0351256001b29c3331567b77c6 = L.polyline(
+                [[41.9381928, -87.6492281], [41.9380969, -87.6540464]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_9ba3fe056600356efc9d2b0f8c8275a8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1a7aff80218bfa66893d28e71167e67f = $(`<div id="html_1a7aff80218bfa66893d28e71167e67f" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Barry Avenue</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5115<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_9ba3fe056600356efc9d2b0f8c8275a8.setContent(html_1a7aff80218bfa66893d28e71167e67f);
+            
+        
+
+        poly_line_5005df0351256001b29c3331567b77c6.bindPopup(popup_9ba3fe056600356efc9d2b0f8c8275a8)
+        ;
+
+        
+    
+    
+            var poly_line_36949e063b0cdd1527c833926f2e2bbf = L.polyline(
+                [[41.9307235, -87.6439128], [41.9300096, -87.6434305]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_69466b45ddf0c3faf3c0e390e5e5ead2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e30bc81bde5ce009da4fa904075e8137 = $(`<div id="html_e30bc81bde5ce009da4fa904075e8137" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Clark Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5259<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_69466b45ddf0c3faf3c0e390e5e5ead2.setContent(html_e30bc81bde5ce009da4fa904075e8137);
+            
+        
+
+        poly_line_36949e063b0cdd1527c833926f2e2bbf.bindPopup(popup_69466b45ddf0c3faf3c0e390e5e5ead2)
+        ;
+
+        
+    
+    
+            var poly_line_29c2d5b9287747c076edf5c608f883e6 = L.polyline(
+                [[41.8758192, -87.6807574], [41.8757631, -87.688313]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_747b759fbbcd6502b6bf333e9455e00d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7af5163e6f755d5c7988ab50a90f2038 = $(`<div id="html_7af5163e6f755d5c7988ab50a90f2038" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>Eisenhower Expressway</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5422<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_747b759fbbcd6502b6bf333e9455e00d.setContent(html_7af5163e6f755d5c7988ab50a90f2038);
+            
+        
+
+        poly_line_29c2d5b9287747c076edf5c608f883e6.bindPopup(popup_747b759fbbcd6502b6bf333e9455e00d)
+        ;
+
+        
+    
+    
+            var poly_line_c67c627140312206b52c29b5c839c9e0 = L.polyline(
+                [[41.8966783, -87.6282103], [41.8956921, -87.6281788]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_379ca37fececd63c076a644d4f997f47 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef12314472cbe1d655884f34c5096636 = $(`<div id="html_ef12314472cbe1d655884f34c5096636" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North State Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5205<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_379ca37fececd63c076a644d4f997f47.setContent(html_ef12314472cbe1d655884f34c5096636);
+            
+        
+
+        poly_line_c67c627140312206b52c29b5c839c9e0.bindPopup(popup_379ca37fececd63c076a644d4f997f47)
+        ;
+
+        
+    
+    
+            var poly_line_56b620d4fc38f0e8091605f16b314bbc = L.polyline(
+                [[41.8768308, -87.6352035], [41.8768531, -87.6337073]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_6c90cbf4e6ae0e431530e5e75fc7832a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8cc5f8f702aca0a8abddec8946dacb9e = $(`<div id="html_8cc5f8f702aca0a8abddec8946dacb9e" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Van Buren Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5232<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_6c90cbf4e6ae0e431530e5e75fc7832a.setContent(html_8cc5f8f702aca0a8abddec8946dacb9e);
+            
+        
+
+        poly_line_56b620d4fc38f0e8091605f16b314bbc.bindPopup(popup_6c90cbf4e6ae0e431530e5e75fc7832a)
+        ;
+
+        
+    
+    
+            var poly_line_0fbb6227dd710427992f4326df598919 = L.polyline(
+                [[41.924159, -87.6305341], [41.927967, -87.6317354]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_bac6a8303585c17cdb0a641dbdbe58d3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6858b9f0c0dc508eeba720a5a7f75f69 = $(`<div id="html_6858b9f0c0dc508eeba720a5a7f75f69" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Jean Baptiste Point DuSable Lake Shore Drive</h4>                 <b>Road Type:</b> primary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5262<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_bac6a8303585c17cdb0a641dbdbe58d3.setContent(html_6858b9f0c0dc508eeba720a5a7f75f69);
+            
+        
+
+        poly_line_0fbb6227dd710427992f4326df598919.bindPopup(popup_bac6a8303585c17cdb0a641dbdbe58d3)
+        ;
+
+        
+    
+    
+            var poly_line_8f3cf0d89ecc0fbcc27a45f8598ed854 = L.polyline(
+                [[41.897618, -87.6218518], [41.8984222, -87.6218667]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_bc61d49d092fce4142164703bc0ecde9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a278873657ffbcda44d3b130e8cf0455 = $(`<div id="html_a278873657ffbcda44d3b130e8cf0455" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Mies van der Rohe Way</h4>                 <b>Road Type:</b> tertiary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5249<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_bc61d49d092fce4142164703bc0ecde9.setContent(html_a278873657ffbcda44d3b130e8cf0455);
+            
+        
+
+        poly_line_8f3cf0d89ecc0fbcc27a45f8598ed854.bindPopup(popup_bc61d49d092fce4142164703bc0ecde9)
+        ;
+
+        
+    
+    
+            var poly_line_c89d7aa3516adfa1b91ef27b03daa25d = L.polyline(
+                [[41.8883135, -87.6244444], [41.890948, -87.6240739]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_01a224084975c81a04849f1028c9afb6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cc15064c368a254da34f7954237e9c66 = $(`<div id="html_cc15064c368a254da34f7954237e9c66" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Michigan Avenue</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5233<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_01a224084975c81a04849f1028c9afb6.setContent(html_cc15064c368a254da34f7954237e9c66);
+            
+        
+
+        poly_line_c89d7aa3516adfa1b91ef27b03daa25d.bindPopup(popup_01a224084975c81a04849f1028c9afb6)
+        ;
+
+        
+    
+    
+            var poly_line_0a1a8f2b72161ba1a67f7978afa9cbfa = L.polyline(
+                [[41.9597484, -87.6707935], [41.9597678, -87.6692474]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_576a0cf6897ff0c4b653d2a1e68fe7e6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_71d5a0aba42e8ba3f1a2c0ddc1eee64f = $(`<div id="html_71d5a0aba42e8ba3f1a2c0ddc1eee64f" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>West Cullom Avenue</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5062<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_576a0cf6897ff0c4b653d2a1e68fe7e6.setContent(html_71d5a0aba42e8ba3f1a2c0ddc1eee64f);
+            
+        
+
+        poly_line_0a1a8f2b72161ba1a67f7978afa9cbfa.bindPopup(popup_576a0cf6897ff0c4b653d2a1e68fe7e6)
+        ;
+
+        
+    
+    
+            var poly_line_ddbbe7d9f63d5caf124dfc9fe0aff11c = L.polyline(
+                [[41.9543801, -87.6622248], [41.9564058, -87.6635034]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_78e5ce35d3dd8cfe9a8df588d4b0f0e5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_460fb5213e72e6d0a8ad450ec5cbd885 = $(`<div id="html_460fb5213e72e6d0a8ad450ec5cbd885" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Clark Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5107<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_78e5ce35d3dd8cfe9a8df588d4b0f0e5.setContent(html_460fb5213e72e6d0a8ad450ec5cbd885);
+            
+        
+
+        poly_line_ddbbe7d9f63d5caf124dfc9fe0aff11c.bindPopup(popup_78e5ce35d3dd8cfe9a8df588d4b0f0e5)
+        ;
+
+        
+    
+    
+            var poly_line_4070704db1f4a45ef09f8ce48b32b5f4 = L.polyline(
+                [[41.8983888, -87.6240417], [41.8983863, -87.6242061]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_5d7ab5efab349e2cb1c8eecd736e21ef = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_252c0c4c48afa612c66fbb1484496e89 = $(`<div id="html_252c0c4c48afa612c66fbb1484496e89" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Chestnut Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5349<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_5d7ab5efab349e2cb1c8eecd736e21ef.setContent(html_252c0c4c48afa612c66fbb1484496e89);
+            
+        
+
+        poly_line_4070704db1f4a45ef09f8ce48b32b5f4.bindPopup(popup_5d7ab5efab349e2cb1c8eecd736e21ef)
+        ;
+
+        
+    
+    
+            var poly_line_a2236ca52b20ba67c70dd596d114f34a = L.polyline(
+                [[41.9561113, -87.6706897], [41.9543279, -87.6706388]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_d74638023e48323221a422a52098f725 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_04f964447ab6704313072d92fe79be2a = $(`<div id="html_04f964447ab6704313072d92fe79be2a" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Paulina Street</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5063<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_d74638023e48323221a422a52098f725.setContent(html_04f964447ab6704313072d92fe79be2a);
+            
+        
+
+        poly_line_a2236ca52b20ba67c70dd596d114f34a.bindPopup(popup_d74638023e48323221a422a52098f725)
+        ;
+
+        
+    
+    
+            var poly_line_72d5a61b540fb5a14d4180018735592c = L.polyline(
+                [[41.8768531, -87.6337073], [41.87567, -87.6336842]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_45f515f08e25628475d96a8c0103724d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0d69ec1916f0cc985467d448b3d38ec0 = $(`<div id="html_0d69ec1916f0cc985467d448b3d38ec0" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>South Wells Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5362<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_45f515f08e25628475d96a8c0103724d.setContent(html_0d69ec1916f0cc985467d448b3d38ec0);
+            
+        
+
+        poly_line_72d5a61b540fb5a14d4180018735592c.bindPopup(popup_45f515f08e25628475d96a8c0103724d)
+        ;
+
+        
+    
+    
+            var poly_line_7b091d3b912adbb32224da37d17eb0b8 = L.polyline(
+                [[41.9510461, -87.6595944], [41.952585, -87.6608091]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_cd713007f53411aa128ac21a7762128f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7fb86b702583abf479f9b96760294912 = $(`<div id="html_7fb86b702583abf479f9b96760294912" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Clark Street</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5242<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_cd713007f53411aa128ac21a7762128f.setContent(html_7fb86b702583abf479f9b96760294912);
+            
+        
+
+        poly_line_7b091d3b912adbb32224da37d17eb0b8.bindPopup(popup_cd713007f53411aa128ac21a7762128f)
+        ;
+
+        
+    
+    
+            var poly_line_bfdaf0da3ed914c25e2529222a21c79d = L.polyline(
+                [[41.9208312, -87.675191], [41.922669, -87.6778153]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_61efbf3dda612ef72a43fba2bc8b7a33 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_daf4f7333ef6abacff4d1c2e0605875b = $(`<div id="html_daf4f7333ef6abacff4d1c2e0605875b" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>None</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5305<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_61efbf3dda612ef72a43fba2bc8b7a33.setContent(html_daf4f7333ef6abacff4d1c2e0605875b);
+            
+        
+
+        poly_line_bfdaf0da3ed914c25e2529222a21c79d.bindPopup(popup_61efbf3dda612ef72a43fba2bc8b7a33)
+        ;
+
+        
+    
+    
+            var poly_line_8ca68370652907a60b698b05fa490e63 = L.polyline(
+                [[41.8808351, -87.6244714], [41.8808376, -87.6242444]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_27da9a0767392310f12125c9136f3e8f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b6a3f8dedb08e8e4461a0fe147f28224 = $(`<div id="html_b6a3f8dedb08e8e4461a0fe147f28224" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>East Monroe Drive</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5233<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_27da9a0767392310f12125c9136f3e8f.setContent(html_b6a3f8dedb08e8e4461a0fe147f28224);
+            
+        
+
+        poly_line_8ca68370652907a60b698b05fa490e63.bindPopup(popup_27da9a0767392310f12125c9136f3e8f)
+        ;
+
+        
+    
+    
+            var poly_line_a381a16b2592d8d665c16340341fd273 = L.polyline(
+                [[41.9567778, -87.7356175], [41.9585842, -87.7383414]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_5dce9f257066fa2e1e7d005967cf3542 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9c7b23384bcfb54ed5ccc610f78d6433 = $(`<div id="html_9c7b23384bcfb54ed5ccc610f78d6433" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>None</h4>                 <b>Road Type:</b> residential<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5101<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_5dce9f257066fa2e1e7d005967cf3542.setContent(html_9c7b23384bcfb54ed5ccc610f78d6433);
+            
+        
+
+        poly_line_a381a16b2592d8d665c16340341fd273.bindPopup(popup_5dce9f257066fa2e1e7d005967cf3542)
+        ;
+
+        
+    
+    
+            var poly_line_93fda169c996e99e81a16f29292123e9 = L.polyline(
+                [[41.9544922, -87.6545493], [41.9554321, -87.6545733]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_1b469416b38376b395b23869e2b7aab5);
+        
+    
+        var popup_96fc9f35152fb3cbbe3a2fc25a1ccd5a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b629e409d9b67105108f2c9d75d9849f = $(`<div id="html_b629e409d9b67105108f2c9d75d9849f" style="width: 100.0%; height: 100.0%;">             <div style="width: 250px">                 <h4>North Sheridan Road</h4>                 <b>Road Type:</b> secondary<br>                 <b>Risk Level:</b> Elevated<br>                 <b>Accident Probability:</b> 0.5126<br>                 <h5>Current Conditions:</h5>                 <b>Weather:</b> Clear<br>                 <b>Road:</b> Dry<br>                 <b>Light:</b> Daylight<br>                 <b>Time:</b> 16:00<br>             <h5>Top Risk Factors:</h5><b>start_lon:</b> 0.0089<br><b>end_lon:</b> 0.0085<br><b>end_lat:</b> 0.0105<br></div></div>`)[0];
+                popup_96fc9f35152fb3cbbe3a2fc25a1ccd5a.setContent(html_b629e409d9b67105108f2c9d75d9849f);
+            
+        
+
+        poly_line_93fda169c996e99e81a16f29292123e9.bindPopup(popup_96fc9f35152fb3cbbe3a2fc25a1ccd5a)
+        ;
+
+        
+    
+    
+            feature_group_1b469416b38376b395b23869e2b7aab5.addTo(map_93104e15c014db9744e07c74e7cf8d82);
+        
+    
+            var feature_group_ee2b548eb0688b9699bb4bfb29ffd6c3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_ee2b548eb0688b9699bb4bfb29ffd6c3.addTo(map_93104e15c014db9744e07c74e7cf8d82);
+        
+    
+            var layer_control_9b8e7634d8671332e600f7b4fdab4c37_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_fc2b89e65cb710742b0eed2fae8c8f17,
+                },
+                overlays :  {
+                    "High Risk Roads" : feature_group_edac97692c35fd83e5e2e328c72c92b3,
+                    "Medium Risk Roads" : feature_group_1b469416b38376b395b23869e2b7aab5,
+                    "Low Risk Roads" : feature_group_ee2b548eb0688b9699bb4bfb29ffd6c3,
+                },
+            };
+            let layer_control_9b8e7634d8671332e600f7b4fdab4c37 = L.control.layers(
+                layer_control_9b8e7634d8671332e600f7b4fdab4c37_layers.base_layers,
+                layer_control_9b8e7634d8671332e600f7b4fdab4c37_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_93104e15c014db9744e07c74e7cf8d82);
+
+        
+</script>
+</html>
